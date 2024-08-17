@@ -5,37 +5,7 @@ import {v4} from "uuid"
 
 export const   PlaygroundContext = createContext();
 
-const initialdata =[
-    {
-      id:v4(),
-      title: 'Dsa',
-      files:[
-        {
-          id:v4(),
-          title: `index`,
-          language: 'cpp',
-          code : `cout<<"hello world"`
-        }
-      ]
-
-    },
-    {
-      id:v4(),
-      title: 'Frontend',
-      files:[
-        {
-          id:v4(),
-          title: `test`,
-          language: 'javascript',
-          code : `cosole.log(hello world)`
-        }
-      ]
-
-    },
-
-]
-
- export const defaultCode = {
+export const defaultCode = {
   'cpp':`#include <iostream>
         int main(){
             std::cout<<"Hello World";
@@ -50,6 +20,38 @@ const initialdata =[
   'javascript':`console.log("hello world")`,
   'python': `print("hello world")`
 }
+
+const initialdata =[
+    {
+      id:v4(),
+      title: 'Dsa',
+      files:[
+        {
+          id:v4(),
+          title: `index`,
+          language: 'cpp',
+          code : defaultCode.cpp
+        }
+      ]
+
+    },
+    {
+      id:v4(),
+      title: 'Frontend',
+      files:[
+        {
+          id:v4(),
+          title: `test`,
+          language: 'javascript',
+          code : defaultCode.java
+        }
+      ]
+
+    },
+
+]
+
+
 const PlaygroundProvider = ({children}) => {
   const [folders,setFolder] = useState(()=>{
     const localData = localStorage.getItem('data')
